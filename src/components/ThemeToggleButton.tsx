@@ -1,35 +1,43 @@
 import { ChangeEvent, useState } from "react";
 
+const updateTheme = (theme: string) => {
+  const rootEl =
+    typeof document !== "undefined" ? document.documentElement : null;
+  if (rootEl && theme === "light") {
+    rootEl.classList.remove("theme-dark");
+  } else if (rootEl && theme === "dark") {
+    rootEl.classList.add("theme-dark");
+  }
+};
+
 const getCurrentTheme = (): string => {
   if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+    updateTheme(localStorage.getItem("theme")!);
     return localStorage.getItem("theme")!;
   } else if (
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
+    updateTheme("dark");
     return "dark";
   }
 
+  updateTheme("light");
   return "light";
 };
 
 export default () => {
-  const rootEl =
-    typeof document !== "undefined" ? document.documentElement : null;
   const themes = ["light", "dark"];
 
   const [theme, setTheme] = useState(() => getCurrentTheme());
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     localStorage.setItem("theme", event.target.value);
+    updateTheme(event.target.value);
     setTheme(event.target.value);
   }
 
-  if (rootEl && theme === "light") {
-    rootEl.classList.remove("theme-dark");
-  } else if (rootEl && theme === "dark") {
-    rootEl.classList.add("theme-dark");
-  }
+  console.log(theme);
 
   const icons = [
     <svg
