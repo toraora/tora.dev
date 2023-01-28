@@ -1,0 +1,56 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="container">
+    <h1>Hi! I’m Nathan,</h1>
+    <ul>
+      <li>
+        a founding engineer at
+        <a href="https://skio.com">Skio</a>.
+      </li>
+      <li>
+        previously a growth/infrastructure engineer at
+        <a href="https://thumbtack.com">Thumbtack</a>.
+      </li>
+      <li>
+        previously an email infrastructure engineer at
+        <a href="https://www.zazzle.com">Zazzle</a>.
+      </li>
+      <li>a proud graduate of UC Berkeley. Go Bears!</li>
+    </ul>
+
+    <hr />
+
+    <p>
+      Find me at
+      <a href="https://github.com/toraora">GitHub (toraora)</a>,
+      <a href="https://github.com/nathan-skio">GitHub (nathan-skio)</a>, or
+      <a href="https://gitlab.com/toraora">GitLab (toraora)</a>.
+    </p>
+
+    <style>
+      header {
+        text-align: center;
+      }
+
+      header h1 {
+        margin-bottom: 0.7em;
+      }
+
+      header p {
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-family: var(--font-family-sans);
+        font-weight: 600;
+      }
+
+      header hr {
+        min-width: 100px;
+        width: 30%;
+      }
+    </style>
+  </div>
+</BaseLayout>
