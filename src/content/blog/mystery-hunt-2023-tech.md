@@ -6,7 +6,7 @@ publishDate: "Jan 27, 2022"
 
 ## Foreword
 
-Nothing here should be construed as an excuse for why some parts of Mystery Hunt didn't pan out the way teammate wanted them to. This should be taken as simply a technical behind-the-scenes look into running Hunt, written for those that might one day find themselves in this position or for the morbidly curious.
+Nothing here should be construed as an excuse for why some parts of Mystery Hunt didn't pan out the way teammate wanted them to. This should be taken as a technical behind-the-scenes look into running Hunt, written for those that might one day find themselves in this position or for the simply curious.
 
 ## Pre-hunt: Writing and Editing
 
