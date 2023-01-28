@@ -66,11 +66,11 @@ There's already plenty of differing opinion over Mystery Hunt's tradition of pho
 3. Discover that the phone we grabbed has the wrong number
 4. Find 11 more phones in storage
 5. Despair about plugging them in one-by-one to find the correct one, since it was raining and there was no Ethernet nearby
-6. Find that the phones are labelled and rejoice
+6. Find that the phones are labeled and rejoice
 7. Despair about not finding the correct number on any of the phones
 8. Contact Puzzle Club to find the MAC address mapped to the correct phone number
 9. Locate phone with said MAC address
-10. Discover later that the phones are each labelled with multiple numbers, presumably because multiple people had done the same thing before us and tried to be helpful
+10. Discover later that the phones are each labeled with multiple numbers, presumably because multiple people had done the same thing before us and tried to be helpful
 11. Discover later that the mapping between MAC address and phone number is configurable
 12. Discover later that said configuration works sporadically at best, as does call forwarding (important for HQ closure between 1 and 6 AM)
 
@@ -78,7 +78,7 @@ While this is meant partially in jest, and realistically callbacks can be done w
 
 ### Hints!
 
-Anyone at HQ without another job, as well as a sizeable remote group of people, was put onto hint duty. There was simply no spare capacity to operate phones unless we significantly compromised on hinting, something we were not willing to do to ensure less experienced teams had a better experience. We probably averaged 6-8 people manning the hint queue at all times of day, even during HQ closure between 1 and 6 AM. Part of that was how much fun we were having and the creativity some teams put into their requests, so thanks everyone for entertaining us!
+Anyone at HQ without another job, as well as a sizable remote group of people, was put onto hint duty. There was simply no spare capacity to operate phones unless we significantly compromised on hinting, something we were not willing to do to ensure less experienced teams had a better experience. We probably averaged 6-8 people manning the hint queue at all times of day, even during HQ closure between 1 and 6 AM. Part of that was how much fun we were having and the creativity some teams put into their requests, so thanks everyone for entertaining us!
 
 ![zappy hint](/assets/images/hint.png)
 
@@ -92,4 +92,4 @@ Broadly useful features will be backported to the open-source projects [Puzzlord
 
 Tech has encroached just about all aspects of our lives, and Mystery Hunt is no exception. The Hunt website may once have just been another piece of the puzzle, but contemporary expectations almost mandate that it be the central delivery mechanism of the Hunt experience. Here on teammate we're gifted to have a large contingent comfortable working in software in order to make that happen, and that's also part of what enables and drives us to be more ambitious on the technical side of things.
 
-This is certainly not true of all teams, and I want to (personally) emphasize to future creators that you need not one-up or even meet previous writing teams in all aspects. You should feel empowered to create the event that you want and feel equipped to handle, and the I believe the Hunt community should be supportive in that pursuit. The areas of Hunt in which teammate compromised on this year were out of a sharp focus on what we feel most passionate about: breaking norms in structure and storytelling through tight integration between art and technology.
+This is certainly not true of all teams, and I want to (personally) emphasize to future creators that you need not one-up or even meet previous writing teams in all aspects. You should feel empowered to create the event that you want and feel equipped to handle, and I believe the Hunt community should be supportive in that pursuit. The areas of Hunt in which teammate compromised on this year were out of a sharp focus on what we feel most passionate about: breaking norms in structure and storytelling through tight integration between art and technology.
