@@ -4,8 +4,6 @@ description: "A look into the tech behind Mystery Hunt 2023, from a teammate on 
 publishDate: "Jan 27, 2022"
 ---
 
-_(note: this contains very minor spoilers, but nothing by name)_
-
 ## Pre-hunt: Writing and Editing
 
 Managing the puzzle production process for an event the scale of Mystery Hunt is a massive challenge. Aside from just tracking and shepherding 100+ puzzles through a state machine with 30 nodes, one of the highest priorities during writing is keeping as many of the limited pool of testsolvers unspoiled. To those ends, tooling like [Puzzletron](https://github.com/mysteryhunt/puzzle-editing/) and [Puzzlord](https://github.com/galacticpuzzlehunt/puzzlord) are traditionally employed to oversee the process. This year, teammate used a fork of Puzzlord, with added features like:
