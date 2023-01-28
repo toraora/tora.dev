@@ -4,6 +4,10 @@ description: "A look into the tech behind Mystery Hunt 2023, from a teammate on 
 publishDate: "Jan 27, 2022"
 ---
 
+## Foreword
+
+Nothing here should be construed as an excuse for why some parts of Mystery Hunt didn't pan out the way teammate wanted them to. This should be taken as simply a technical behind-the-scenes look into running Hunt, written for those that might one day find themselves in this position or for the morbidly curious.
+
 ## Pre-hunt: Writing and Editing
 
 Managing the puzzle production process for an event the scale of Mystery Hunt is a massive challenge. Aside from just tracking and shepherding 100+ puzzles through a state machine with 30 nodes, one of the highest priorities during writing is keeping as many of the limited pool of testsolvers unspoiled. To those ends, tooling like [Puzzletron](https://github.com/mysteryhunt/puzzle-editing/) and [Puzzlord](https://github.com/galacticpuzzlehunt/puzzlord) are traditionally employed to oversee the process. This year, teammate used a fork of Puzzlord, with added features like:
@@ -15,7 +19,7 @@ After some rest, we do plan on extricating the changes that are broadly useful a
 
 ## Hunt Website
 
-[tph-site](https://github.com/teammatehunt/tph-site), the core technology behind this year's Hunt website, is largely unchanged from previous teammate events. Past technical write-ups can be found [here (2020)](https://2020.teammatehunt.com/wrapup#tech) and [here (2021)](https://2021.teammatehunt.com/wrapup#technical-details). From a traffic scaling perspective, Mystery Hunt (with just shy of 5000 participants) isn't significantly larger than the largest online puzzlehunts. We were able to get away with running the entirety of Hunt — reverse proxy, frontend, backend, database, caching layer, task queue — all off of a single rather beefy cloud server as we normally do...
+[tph-site](https://github.com/teammatehunt/tph-site), the core technology behind this year's Hunt website, is largely unchanged from previous teammate events. Past technical write-ups can be found [here (2020)](https://2020.teammatehunt.com/wrapup#tech) and [here (2021)](https://2021.teammatehunt.com/wrapup#technical-details). From a user count perspective, Mystery Hunt (with just shy of 5000 participants) isn't significantly larger than the largest online puzzlehunts. We were able to get away with running the entirety of Hunt — reverse proxy, frontend, backend, database, caching layer, task queue — all off of a single rather beefy cloud server as we normally do...
 
 ### ... mostly.
 
@@ -57,7 +61,7 @@ DiscordOps! Pretty much all aspects of HQ were organized through Discord. A natu
 
 ### On Hunt Phones
 
-There's already plenty of differing opinion over Mystery Hunt's tradition of phone callbacks, so I'd just like to offer some practical considerations here. The most obtuse hint that teammate just isn't the right team to operate phones was the staggering number of person hours it took for us to find and set up the Contact HQ phone (true story!):
+There's already plenty of conflicting opinion over Mystery Hunt's tradition of phone callbacks, so I'd just like to offer some practical considerations here. The most obtuse hint that teammate just isn't the right team to operate phones was the staggering number of person hours it took for us to find and set up the Contact HQ phone (true story!):
 
 1. Grab a phone from storage and plug it in incorrectly
 2. Randomly try different wall sockets until it finally works
