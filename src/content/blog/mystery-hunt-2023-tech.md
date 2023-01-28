@@ -91,5 +91,3 @@ Broadly useful features will be backported to the open-source projects [Puzzlord
 Tech has encroached just about all aspects of our lives, and Mystery Hunt is no exception. The Hunt website may once have just been another piece of the puzzle, but contemporary expectations effectively mandate that it be the central delivery mechanism of the Hunt experience. Here on teammate we're gifted to have a large contingent comfortable working in software in order to make that happen, and that's also part of what enables and drives us to be more ambitious on the technical side of things.
 
 This is certainly not true of all teams, and I want to (personally) emphasize to future creators that you need not one-up or even meet previous writing teams in all aspects. You should feel empowered to create the event that you want and feel equipped to handle, and I believe the Hunt community should be supportive in that pursuit. The areas of Hunt in which teammate compromised on this year were out of a sharp focus on what we feel most passionate about: breaking norms in structure and storytelling through tight integration between art and technology.
-
-And we'll do it again.
