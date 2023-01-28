@@ -65,12 +65,12 @@ There's already plenty of differing opinion over Mystery Hunt's tradition of pho
 2. Randomly try different wall sockets until it finally works
 3. Discover that the phone we grabbed has the wrong number
 4. Find 11 more phones in storage
-5. Despair about plugging them in one-by-one to find the correct one, since it was raining and there was no Ethernet nearby
-6. Find that the phones are labeled and rejoice
+5. Despair about plugging them in one-by-one to find the correct one, since it was raining and there was no Ethernet connection nearby
+6. Discover that the phones are labeled and rejoice
 7. Despair about not finding the correct number on any of the phones
-8. Contact Puzzle Club to find the MAC address mapped to the correct phone number
+8. Contact Puzzle Club to learn that they can find the MAC address of the phone mapped to the correct number
 9. Locate phone with said MAC address
-10. Discover later that the phones are each labeled with multiple numbers, presumably because multiple people had done the same thing before us and tried to be helpful
+10. Discover later that the phones are in fact each labeled with multiple numbers, presumably because multiple people had done the same thing before us and tried to be helpful
 11. Discover later that the mapping between MAC address and phone number is configurable
 12. Discover later that said configuration works sporadically at best, as does call forwarding (important for HQ closure between 1 and 6 AM)
 
