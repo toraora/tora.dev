@@ -37,8 +37,6 @@ export default () => {
     setTheme(event.target.value);
   }
 
-  console.log(theme);
-
   const icons = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
