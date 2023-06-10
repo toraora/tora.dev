@@ -6,13 +6,28 @@ const title = "Hummer and Curly";
 const description = "Photos of cute cats";
 ---
 
+<style>
+  .spacer {
+    margin-bottom: 1em;
+  }
+</style>
+
 <BaseLayout title={title} description={description} current="cats">
   <div class="container">
+    <Picture
+      src={import("../../../public/assets/images/curly-spotlight.jpg")}
+      widths={[200, 400, 800]}
+      sizes="(max-width: 800px) 100vw, 800px"
+      alt="meow!"
+    />
+
+    <div class="spacer"></div>
+
     <Picture
       src={import("../../../public/assets/images/curly-lookout.jpg")}
       widths={[200, 400, 800]}
       sizes="(max-width: 800px) 100vw, 800px"
-      alt="Curly on lookout duty"
+      alt="spotlight"
     />
   </div>
 </BaseLayout>
