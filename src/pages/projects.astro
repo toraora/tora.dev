@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Projects and Other Things";
+const description = "Things I enjoy doing in my free time";
+---
+
+<style>
+  .spacer {
+    margin-bottom: 1em;
+  }
+</style>
+
+<BaseLayout title={title} description={description} current="projects">
+  <div class="container">
+    <p>
+      I am the lead developer of <a href="https://atomicgrader.com"
+        >Atomic Grader</a
+      > (stylized <b>[Ag]</b>), a massively parallel online platform for grading
+      math tourmanents and enabling them to run on time. It is primarily used by
+      the <a href="https://berkeley.mt">Berkeley Math Tournament</a> and the <a
+        href="https://www.stanfordmathtournament.com"
+        >Stanford Math Tournament</a
+      >, although it has also seen use in a variety of other competitions.
+    </p>
+    <p>
+      Reach out to nathan at atomicgrader dot com if your organization is
+      interested in using it.
+    </p>
+
+    <hr />
+
+    <p>
+      I regularly participate in puzzlehunts with <a
+        href="https://puzzles.wiki/teammate">teammate</a
+      > for large events and with Black Fedora Group for smaller ones. In addition
+      to the events themselves, I am also a contributor to <a
+        href="https://github.com/teammatehunt/tph-site">tph-site</a
+      >, a puzzlehunt framework that was used to run all past <a
+        href="https://teammatehunt.com">Teammate Hunts</a
+      > as well as the <a href="https://puzzles.mit.edu/2023/"
+        >2023 MIT Mystery Hunt</a
+      >.
+    </p>
+
+    <hr />
+
+    <p>
+      Since 2017, I have been a volunteer coach for <a
+        href="https://sfbanorcalarml.org">SFBA ARML</a
+      > at the annual nationwide American Regions Math League contest.
+    </p>
+    <p>
+      Reach out to nathan at sfbanorcalarml dot org if you are interested in
+      participating, volunteering, or otherwise contributing. We are a 501(c)(3)
+      organization.
+    </p>
+  </div>
+
+  <style>
+    hr {
+      margin: 60px auto;
+    }
+  </style>
+</BaseLayout>
