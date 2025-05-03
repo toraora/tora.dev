@@ -1,5 +1,5 @@
 ---
-import { Image, Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const title = "Hummer and Curly";
@@ -15,18 +15,27 @@ const description = "Photos of cute cats";
 <BaseLayout title={title} description={description} current="cats">
   <div class="container">
     <Picture
-      src={import("../../../public/assets/images/curly-spotlight.jpg")}
-      widths={[200, 400, 800]}
-      sizes="(max-width: 800px) 100vw, 800px"
+      src={import("../../images/hummer-bed.jpg")}
+      densities={[1, 1.5, 2, 3]}
+      width={640}
+      alt="sleepy cat"
+    />
+
+    <div class="spacer"></div>
+
+    <Picture
+      src={import("../../images/curly-spotlight.jpg")}
+      densities={[1, 1.5, 2, 3]}
+      width={640}
       alt="meow!"
     />
 
     <div class="spacer"></div>
 
     <Picture
-      src={import("../../../public/assets/images/curly-lookout.jpg")}
-      widths={[200, 400, 800]}
-      sizes="(max-width: 800px) 100vw, 800px"
+      src={import("../../images/curly-lookout.jpg")}
+      densities={[1, 1.5, 2, 3]}
+      width={640}
       alt="spotlight"
     />
   </div>

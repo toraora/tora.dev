@@ -1,5 +1,4 @@
 ---
-import ThemeToggleButton from "./ThemeToggleButton";
 const { current = "" } = Astro.props;
 ---
 
@@ -49,20 +48,13 @@ const { current = "" } = Astro.props;
   .selected::before {
     background: var(--primary-color);
   }
-
-  .theme-toggle-container {
-    width: 75px;
-  }
 </style>
 
 <nav>
   <a class={current === "" ? "selected" : ""} href="/">home</a>
-  <!--<a class={current === "blog" ? "selected" : ""} href="/blog">blog</a>-->
+  <a class={current === "blog" ? "selected" : ""} href="/blog">blog</a>
   <a class={current === "projects" ? "selected" : ""} href="/projects"
     >projects</a
   >
   <a class={current === "cats" ? "selected" : ""} href="/cats">cats!</a>
-  <div class="theme-toggle-container">
-    <ThemeToggleButton client:load />
-  </div>
 </nav>
