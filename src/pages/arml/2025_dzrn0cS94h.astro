@@ -1,0 +1,77 @@
+---
+import EmptyLayout from "../../layouts/EmptyLayout.astro";
+import { Picture } from "astro:assets";
+
+const title = "ARML 2025 (Reno) Gallery";
+const description = "ARML 2025 (Reno) Gallery";
+const links = [
+  ["General / Coaches", "https://photos.app.goo.gl/uFwQucNEK3sJ1wwa6"],
+  ["SFBA/Norcal A1", "https://photos.app.goo.gl/2JDQUDUxntPPCnnYA"],
+  ["SFBA/Norcal A2", "https://photos.app.goo.gl/TFddc2cifxeaLA1t8"],
+  ["SFBA/Norcal A3", "https://photos.app.goo.gl/MZ4eG3C6Phfjvgn99"],
+  ["SFBA/Norcal A4", "https://photos.app.goo.gl/FN68kDidgB6gECxUA"],
+  ["SFBA/Norcal A5", "https://photos.app.goo.gl/nhmAyPgpTzFk3pPR9"],
+  ["SFBA/Norcal A6", "https://photos.app.goo.gl/YPhNDybjadDJmYhm8"],
+  ["Colorado", "https://photos.app.goo.gl/Zcp44WTcc5KcaZF46"],
+  ["Las Vegas", "https://photos.app.goo.gl/gh1QrFK4rEwkVeoT8"],
+  ["Northern Nevada", "https://photos.app.goo.gl/wZLyC9DdRg5vq9yQA"],
+  ["Oregon", "https://photos.app.goo.gl/oBGfanQJjCmV96A49"],
+  ["San Diego", "https://photos.app.goo.gl/fs1PV2jHg3Gn7oQm7"],
+  ["Southern California", "https://photos.app.goo.gl/8MtyDYbk544vLFpN6"],
+  ["Utah", "https://photos.app.goo.gl/mJSRQwugeiZPdRqG6"],
+  ["Washington", "https://photos.app.goo.gl/xnPhueYnaYZyKBaA7"],
+  ["Wild Wild West", "https://photos.app.goo.gl/Pz9RPvhMQQAtedD29"],
+  ["IRML", "https://photos.app.goo.gl/xQ52zhapgzayEa959"],
+];
+---
+
+<EmptyLayout title={title} description={description}>
+  <div class="container">
+    <h3>ARML 2025 at the University of Nevada, Reno</h3>
+
+    <Picture
+      src={import("./2025.jpg")}
+      densities={[1, 1.5, 2, 3]}
+      width={640}
+      alt="ARML 2025 in Reno"
+    />
+
+    <ul>
+      {
+        links.map(([name, url]) => (
+          <li>
+            <a href={url}>{name}</a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <style>
+      li {
+        padding: 0;
+        margin: 0;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      .container h3 {
+        margin-top: 2em;
+        margin-bottom: 1.2em;
+      }
+
+      header p {
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-family: var(--font-family-sans);
+        font-weight: 600;
+      }
+
+      header hr {
+        min-width: 100px;
+        width: 30%;
+      }
+    </style>
+  </div>
+</EmptyLayout>
