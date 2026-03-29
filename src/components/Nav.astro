@@ -1,7 +1,7 @@
 ---
 const { current = "" } = Astro.props;
 
-const hideBlog = true;
+const hideBlog = false;
 ---
 
 <style>
@@ -61,8 +61,6 @@ const hideBlog = true;
       </a>
     )
   }
-  <a class={current === "projects" ? "selected" : ""} href="/projects"
-    >projects</a
-  >
+  <a class={current === "projects" ? "selected" : ""} href="/projects">projects</a>
   <a class={current === "cats" ? "selected" : ""} href="/cats">cats!</a>
 </nav>

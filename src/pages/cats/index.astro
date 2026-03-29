@@ -2,7 +2,7 @@
 import { Picture } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const title = "Hummer and Curly";
+const title = "tora.dev - Meow!";
 const description = "Photos of cute cats";
 ---
 
@@ -15,29 +15,21 @@ const description = "Photos of cute cats";
 <BaseLayout title={title} description={description} current="cats">
   <div class="container">
     <Picture
-      src={import("../../images/hummer-bed.jpg")}
+      src={import("../../images/hummus-upsidedown.jpg")}
       densities={[1, 1.5, 2, 3]}
       width={640}
-      alt="sleepy cat"
+      alt="upside-down cat"
     />
+
+    <Picture src={import("../../images/hummer-bed.jpg")} densities={[1, 1.5, 2, 3]} width={640} alt="sleepy cat" />
 
     <div class="spacer"></div>
 
-    <Picture
-      src={import("../../images/curly-spotlight.jpg")}
-      densities={[1, 1.5, 2, 3]}
-      width={640}
-      alt="meow!"
-    />
+    <Picture src={import("../../images/curly-spotlight.jpg")} densities={[1, 1.5, 2, 3]} width={640} alt="meow!" />
 
     <div class="spacer"></div>
 
-    <Picture
-      src={import("../../images/curly-lookout.jpg")}
-      densities={[1, 1.5, 2, 3]}
-      width={640}
-      alt="spotlight"
-    />
+    <Picture src={import("../../images/curly-lookout.jpg")} densities={[1, 1.5, 2, 3]} width={640} alt="spotlight" />
   </div>
 </BaseLayout>
 

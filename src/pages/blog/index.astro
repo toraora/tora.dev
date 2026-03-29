@@ -1,14 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const title = "Blog";
+const title = "tora.dev - Blog";
 const description = "Latest articles.";
 
 let allPosts = await Astro.glob("../../content/blog/*.{md,mdx}");
 allPosts = allPosts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.publishDate).valueOf() -
-    new Date(a.frontmatter.publishDate).valueOf()
+  (a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf(),
 );
 ---
 
@@ -27,9 +25,7 @@ allPosts = allPosts.sort(
               </h2>
               <p>{post.frontmatter.description}</p>
               <div class="post-item-footer">
-                <span class="post-item-date">
-                  — {post.frontmatter.publishDate}
-                </span>
+                <span class="post-item-date">— {post.frontmatter.publishDate}</span>
               </div>
             </div>
           </div>
