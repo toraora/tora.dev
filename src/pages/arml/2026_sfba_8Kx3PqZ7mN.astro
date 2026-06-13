@@ -1,0 +1,69 @@
+---
+import EmptyLayout from "../../layouts/EmptyLayout.astro";
+import { Picture } from "astro:assets";
+
+const title = "ARML 2026 (Reno) Gallery";
+const description = "ARML 2026 (Reno) Gallery";
+const links = [
+  ["General", "https://photos.app.goo.gl/TpqFajcQENkL6bxg8"],
+  ["Coaches", "https://photos.app.goo.gl/qegSDctTxJvNP7Q2A"],
+  ["SFBA/Norcal A1", "https://photos.app.goo.gl/HnrSMJs7yYZjxV8H7"],
+  ["SFBA/Norcal A2", "https://photos.app.goo.gl/zJGXw8wgTSVY5FU76"],
+  ["SFBA/Norcal A3", "https://photos.app.goo.gl/YG8DPZu5BZNZnUPH6"],
+  ["SFBA/Norcal A4", "https://photos.app.goo.gl/kjthjj2CEiM5oRuY8"],
+  ["SFBA/Norcal A5", "https://photos.app.goo.gl/WkppqWvXrYwEDdpN9"],
+  ["SFBA/Norcal A6", "https://photos.app.goo.gl/5yHc2F7AjGhM2Dwy8"],
+  ["SFBA/Norcal Alternates", "https://photos.app.goo.gl/tZSJZcukhmnAG8xLA"],
+];
+---
+
+<EmptyLayout title={title} description={description}>
+  <div class="container">
+    <h3>ARML 2026 at the University of Nevada, Reno</h3>
+
+    <Picture
+      src={import("./2026.jpg")}
+      densities={[1, 1.5, 2, 3]}
+      width={640}
+      alt="ARML 2026 in Reno"
+    />
+
+    <ul>
+      {
+        links.map(([name, url]) => (
+          <li>
+            <a href={url}>{name}</a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <style>
+      li {
+        padding: 0;
+        margin: 0;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      .container h3 {
+        margin-top: 2em;
+        margin-bottom: 1.2em;
+      }
+
+      header p {
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-family: var(--font-family-sans);
+        font-weight: 600;
+      }
+
+      header hr {
+        min-width: 100px;
+        width: 30%;
+      }
+    </style>
+  </div>
+</EmptyLayout>
