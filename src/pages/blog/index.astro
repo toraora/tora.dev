@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const title = "tora.dev - Blog";
-const description = "Latest articles.";
+const title = "Blog";
+const description = "Occasional posts by Nathan Wong.";
 
 let allPosts = await getCollection("blog");
 allPosts = allPosts.sort(
