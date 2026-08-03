@@ -12,12 +12,9 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const {
-  title,
-  description,
-  image = "/placeholder-social.jpg",
-  noindex = false,
-} = Astro.props;
+const { title, description, image, noindex = false } = Astro.props;
+
+const imageURL = image ? new URL(image, Astro.url) : undefined;
 ---
 
 <!-- Global Metadata -->
@@ -40,14 +37,17 @@ const {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+{imageURL && <meta property="og:image" content={imageURL} />}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
+<meta
+  property="twitter:card"
+  content={imageURL ? "summary_large_image" : "summary"}
+/>
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+{imageURL && <meta property="twitter:image" content={imageURL} />}
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
