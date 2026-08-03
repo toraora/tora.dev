@@ -13,17 +13,19 @@ const description = "Things I enjoy doing in my free time";
 
 <BaseLayout title={title} description={description} current="projects">
   <div class="container">
+    <h1>Projects</h1>
+
+    <h2>Atomic Grader</h2>
     <p>
-      I am the lead developer of <a href="https://atomicgrader.com">Atomic Grader</a> (stylized <b>[Ag]</b>), a
-      massively parallel online platform for grading math tournaments and enabling them to run on time. It is primarily
+      I am the lead developer of <a href="https://atomicgrader.com">Atomic Grader</a> (stylized <b>[Ag]</b>), an online
+      platform that lets many graders score a math tournament in parallel, so results are ready on time. It is primarily
       used by the <a href="https://berkeley.mt">Berkeley Math Tournament</a> and the <a
         href="https://www.stanfordmathtournament.com">Stanford Math Tournament</a
-      >, although it has also seen use in a variety of other competitions.
+      >, and by a variety of other competitions.
     </p>
     <p>Reach out to nathan at atomicgrader dot com if your organization is interested in using it.</p>
 
-    <hr />
-
+    <h2>Puzzlehunts</h2>
     <p>
       I regularly participate in puzzlehunts with <a href="https://puzzles.wiki/teammate">teammate</a> for large events and
       with Black Fedora Group or Hummus Appreciation Society for smaller ones. In addition to playing the events themselves,
@@ -33,8 +35,7 @@ const description = "Things I enjoy doing in my free time";
       >.
     </p>
 
-    <hr />
-
+    <h2>SFBA ARML</h2>
     <p>
       Since 2017, I have been a volunteer coach for <a href="https://sfbanorcalarml.org">SFBA ARML</a> at the annual nationwide
       American Regions Math League contest.
@@ -46,8 +47,8 @@ const description = "Things I enjoy doing in my free time";
   </div>
 
   <style>
-    hr {
-      margin: 60px auto;
+    h2 {
+      margin-top: 2.4em;
     }
   </style>
 </BaseLayout>
