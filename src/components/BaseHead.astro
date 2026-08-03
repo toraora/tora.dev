@@ -2,7 +2,6 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import "../styles/fonts.css";
 
 export interface Props {
   title: string;
@@ -50,20 +49,16 @@ const {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Geist+Mono:wght@400;700&display=swap"
+/>
+
 <style>
   :root {
-    color-scheme: light dark;
-  }
-  :root.theme-dark {
-    --background-body: #2b3639;
-    --text-main: #cccccc;
-    --text-secondary: #bbbbbb;
-    --text-code: #aaaaaa;
-  }
-  :root:not(.theme-dark) {
-    --background-body: #efefef;
-    --text-main: #2b3639;
-    --text-secondary: #3b4649;
-    --text-code: #555555;
+    color-scheme: light;
   }
 </style>

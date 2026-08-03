@@ -10,7 +10,7 @@ const hideBlog = false;
     display: flex;
     flex: 1;
     font-family: var(--font-family-sans);
-    font-weight: 700;
+    font-weight: 600;
     justify-content: flex-end;
   }
 
@@ -61,6 +61,8 @@ const hideBlog = false;
       </a>
     )
   }
-  <a class={current === "projects" ? "selected" : ""} href="/projects">projects</a>
+  <a class={current === "projects" ? "selected" : ""} href="/projects"
+    >projects</a
+  >
   <a class={current === "cats" ? "selected" : ""} href="/cats">cats!</a>
 </nav>
