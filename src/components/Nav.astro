@@ -50,6 +50,18 @@ const hideBlog = false;
   .selected::before {
     background: var(--primary-color);
   }
+
+  @media (max-width: 480px) {
+    nav {
+      justify-content: space-between;
+    }
+
+    a {
+      margin-left: 0;
+      min-width: 0;
+      padding: 10px 8px;
+    }
+  }
 </style>
 
 <nav>

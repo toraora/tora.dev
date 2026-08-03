@@ -6,6 +6,10 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tora.dev",
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [
+    mdx(),
+    sitemap({ filter: (page) => !new URL(page).pathname.startsWith("/arml/") }),
+    react(),
+  ],
   output: 'static',
 });
