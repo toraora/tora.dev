@@ -12,4 +12,4 @@ npm run dev      # local dev server at localhost:4321
 npm run build    # static build to ./dist
 ```
 
-Blog posts live in `src/content/blog/` as MDX. `/design` is a design exploration playground.
+Blog posts live in `src/content/blog/` as MDX.
