@@ -12,7 +12,7 @@ const description = "Design exploration playground.";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Geist+Mono:wght@400;700&family=Space+Mono:wght@400;700&family=Fira+Code:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Roboto+Mono:wght@400;700&family=Ubuntu+Mono:wght@400;700&family=Inconsolata:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Lora:wght@400;700&family=Spectral:wght@400;700&family=IBM+Plex+Sans:wght@400;600;700&family=Work+Sans:wght@400;600;700&family=Libre+Franklin:wght@400;600;700&family=EB+Garamond:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&family=Geist:wght@400;600;700&family=Inter:wght@400;600;700&family=Instrument+Sans:wght@400;600;700&family=Hanken+Grotesk:wght@400;600;700&family=Schibsted+Grotesk:wght@400;600;700&family=Archivo:wght@400;600;700&family=Public+Sans:wght@400;600;700&family=Work+Sans:wght@400;600;700&family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Spectral:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Newsreader:opsz,wght@6..72,400;6..72,700&family=Lora:wght@400;700&family=Besley:wght@400;700&family=PT+Serif:wght@400;700&family=Crimson+Pro:wght@400;600;700&family=Literata:opsz,wght@7..72,400;7..72,700&family=EB+Garamond:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
     />
   </head>
   <body>
@@ -26,12 +26,12 @@ const description = "Design exploration playground.";
 
     <div
       id="preview"
-      data-font="mono"
+      data-font="geist"
       data-theme="ink"
       data-ornament="clean"
       data-nav="underline"
       data-links="muted"
-      data-prose="inter"
+      data-prose="spectral"
     >
       <header class="p-header">
         <span class="p-site"><span class="p-prompt">~/</span>tora.dev</span>
@@ -113,33 +113,33 @@ const description = "Design exploration playground.";
     <script is:inline>
       const AXES = {
         font: {
-          label: "mono font (headings, labels, code)",
+          label: "heading font (sans)",
           options: {
-            mono: "JetBrains Mono",
-            plex: "IBM Plex Mono",
-            geist: "Geist Mono",
-            space: "Space Mono",
-            fira: "Fira Code",
-            source: "Source Code Pro",
-            roboto: "Roboto Mono",
-            ubuntu: "Ubuntu Mono",
-            inconsolata: "Inconsolata",
-            dm: "DM Mono",
+            geist: "Geist (Vercel; closest to NB International)",
+            inter: "Inter",
+            instrument: "Instrument Sans",
+            hanken: "Hanken Grotesk",
+            schibsted: "Schibsted Grotesk",
+            archivo: "Archivo",
+            publicsans: "Public Sans",
+            work: "Work Sans",
+            plexsans: "IBM Plex Sans",
+            spacegrotesk: "Space Grotesk",
           },
         },
         prose: {
-          label: "prose font (body text)",
+          label: "prose font (serif)",
           options: {
-            inter: "Inter",
-            plexsans: "IBM Plex Sans",
-            work: "Work Sans",
-            franklin: "Libre Franklin",
-            publicsans: "Public Sans",
-            newsreader: "Newsreader",
+            spectral: "Spectral (closest to STK Bureau)",
             sourceserif: "Source Serif 4",
+            newsreader: "Newsreader",
             lora: "Lora",
-            spectral: "Spectral",
+            besley: "Besley",
+            ptserif: "PT Serif",
+            crimson: "Crimson Pro",
+            literata: "Literata",
             garamond: "EB Garamond",
+            fraunces: "Fraunces",
           },
         },
         theme: {
@@ -465,73 +465,61 @@ const description = "Design exploration playground.";
         border-top: 1px solid var(--pv-border);
       }
 
-      /* ============ axis: mono font (headings, labels, code) ============ */
+      /* ============ axis: heading font (sans) ============ */
       #preview {
         font-size: 15px;
         --pv-font-body: var(--pv-prose-family);
-        --pv-font-heading: var(--pv-mono-family);
-        --pv-font-mono: var(--pv-mono-family);
-      }
-
-      #preview[data-font="mono"] {
-        --pv-mono-family: "JetBrains Mono", "SF Mono", menlo, monospace;
-      }
-
-      #preview[data-font="plex"] {
-        --pv-mono-family: "IBM Plex Mono", "SF Mono", menlo, monospace;
+        --pv-font-heading: var(--pv-heading-family);
+        --pv-font-mono: "Geist Mono", "SF Mono", menlo, monospace;
       }
 
       #preview[data-font="geist"] {
-        --pv-mono-family: "Geist Mono", "SF Mono", menlo, monospace;
+        --pv-heading-family: Geist, system-ui, sans-serif;
       }
 
-      #preview[data-font="space"] {
-        --pv-mono-family: "Space Mono", "SF Mono", menlo, monospace;
+      #preview[data-font="inter"] {
+        --pv-heading-family: Inter, system-ui, sans-serif;
       }
 
-      #preview[data-font="fira"] {
-        --pv-mono-family: "Fira Code", "SF Mono", menlo, monospace;
+      #preview[data-font="instrument"] {
+        --pv-heading-family: "Instrument Sans", system-ui, sans-serif;
       }
 
-      #preview[data-font="source"] {
-        --pv-mono-family: "Source Code Pro", "SF Mono", menlo, monospace;
+      #preview[data-font="hanken"] {
+        --pv-heading-family: "Hanken Grotesk", system-ui, sans-serif;
       }
 
-      #preview[data-font="roboto"] {
-        --pv-mono-family: "Roboto Mono", "SF Mono", menlo, monospace;
+      #preview[data-font="schibsted"] {
+        --pv-heading-family: "Schibsted Grotesk", system-ui, sans-serif;
       }
 
-      #preview[data-font="ubuntu"] {
-        --pv-mono-family: "Ubuntu Mono", "SF Mono", menlo, monospace;
+      #preview[data-font="archivo"] {
+        --pv-heading-family: Archivo, system-ui, sans-serif;
       }
 
-      #preview[data-font="inconsolata"] {
-        --pv-mono-family: Inconsolata, "SF Mono", menlo, monospace;
+      #preview[data-font="publicsans"] {
+        --pv-heading-family: "Public Sans", system-ui, sans-serif;
       }
 
-      #preview[data-font="dm"] {
-        --pv-mono-family: "DM Mono", "SF Mono", menlo, monospace;
+      #preview[data-font="work"] {
+        --pv-heading-family: "Work Sans", system-ui, sans-serif;
       }
 
-      /* ============ axis: prose font (body text) ============ */
-      #preview[data-prose="inter"] {
-        --pv-prose-family: Inter, system-ui, sans-serif;
+      #preview[data-font="plexsans"] {
+        --pv-heading-family: "IBM Plex Sans", system-ui, sans-serif;
       }
 
-      #preview[data-prose="plexsans"] {
-        --pv-prose-family: "IBM Plex Sans", system-ui, sans-serif;
+      #preview[data-font="spacegrotesk"] {
+        --pv-heading-family: "Space Grotesk", system-ui, sans-serif;
       }
 
-      #preview[data-prose="work"] {
-        --pv-prose-family: "Work Sans", system-ui, sans-serif;
+      /* ============ axis: prose font (serif) ============ */
+      #preview[data-prose="spectral"] {
+        --pv-prose-family: Spectral, Georgia, serif;
       }
 
-      #preview[data-prose="franklin"] {
-        --pv-prose-family: "Libre Franklin", system-ui, sans-serif;
-      }
-
-      #preview[data-prose="publicsans"] {
-        --pv-prose-family: "Public Sans", system-ui, sans-serif;
+      #preview[data-prose="sourceserif"] {
+        --pv-prose-family: "Source Serif 4", Georgia, serif;
       }
 
       #preview[data-prose="newsreader"] {
@@ -539,21 +527,34 @@ const description = "Design exploration playground.";
         --pv-prose-scale: 1.08;
       }
 
-      #preview[data-prose="sourceserif"] {
-        --pv-prose-family: "Source Serif 4", Georgia, serif;
-      }
-
       #preview[data-prose="lora"] {
         --pv-prose-family: Lora, Georgia, serif;
       }
 
-      #preview[data-prose="spectral"] {
-        --pv-prose-family: Spectral, Georgia, serif;
+      #preview[data-prose="besley"] {
+        --pv-prose-family: Besley, Georgia, serif;
+      }
+
+      #preview[data-prose="ptserif"] {
+        --pv-prose-family: "PT Serif", Georgia, serif;
+      }
+
+      #preview[data-prose="crimson"] {
+        --pv-prose-family: "Crimson Pro", Georgia, serif;
+        --pv-prose-scale: 1.1;
+      }
+
+      #preview[data-prose="literata"] {
+        --pv-prose-family: Literata, Georgia, serif;
       }
 
       #preview[data-prose="garamond"] {
         --pv-prose-family: "EB Garamond", Georgia, serif;
         --pv-prose-scale: 1.12;
+      }
+
+      #preview[data-prose="fraunces"] {
+        --pv-prose-family: Fraunces, Georgia, serif;
       }
 
       #preview main p,
