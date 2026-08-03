@@ -1,0 +1,637 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+const title = "tora.dev - Design Lab";
+const description = "Design exploration playground.";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} noindex={true} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&display=swap"
+    />
+  </head>
+  <body>
+    <aside id="controls">
+      <p class="controls-title">design lab</p>
+      <p class="controls-hint">
+        Mix and match; the URL hash tracks your combo.
+      </p>
+      <div id="controls-groups"></div>
+    </aside>
+
+    <div
+      id="preview"
+      data-font="current"
+      data-theme="current"
+      data-ornament="clean"
+      data-nav="underline"
+    >
+      <header class="p-header">
+        <span class="p-site"><span class="p-prompt">~/</span>tora.dev</span>
+        <nav class="p-nav">
+          <a href="#" class="selected"
+            ><span class="br">[</span>home<span class="br">]</span></a
+          >
+          <a href="#"><span class="br">[</span>blog<span class="br">]</span></a>
+          <a href="#"
+            ><span class="br">[</span>projects<span class="br">]</span></a
+          >
+          <a href="#"><span class="br">[</span>cats!<span class="br">]</span></a
+          >
+        </nav>
+      </header>
+
+      <main>
+        <section class="p-section" data-num="01" data-label="about">
+          <h1>Hi! I&rsquo;m Nathan,</h1>
+          <ul>
+            <li>
+              a human engineer at <a href="https://cognition.ai">Cognition AI</a
+              >.
+            </li>
+            <li>the founder of Substructure Inc.</li>
+            <li>
+              previously a founding engineer at <a href="https://skio.com"
+                >Skio</a
+              > (acquired by Recharge).
+            </li>
+            <li>a proud graduate of UC Berkeley. Go Bears!</li>
+          </ul>
+          <p>
+            Find me at <a href="https://github.com/toraora">GitHub (toraora)</a> or
+            <a href="https://gitlab.com/toraora">GitLab (toraora)</a>.
+          </p>
+        </section>
+
+        <section class="p-section" data-num="02" data-label="blog">
+          <h2>Blog</h2>
+          <div class="p-post">
+            <h3><a href="#">Personal Fitness Update - November 2025</a></h3>
+            <p>
+              A 6-month follow-up on strength training progress and year-end
+              goals.
+            </p>
+            <span class="p-date">November 9, 2025</span>
+          </div>
+          <div class="p-post">
+            <h3><a href="#">Personal Fitness Update - May 2025</a></h3>
+            <p>Fitness progress and goals after 1 year of basic training.</p>
+            <span class="p-date">May 3, 2025</span>
+          </div>
+        </section>
+
+        <section class="p-section" data-num="03" data-label="code">
+          <h2>Sample prose</h2>
+          <p>
+            Body text looks like this. Inline code like <code
+              >getCollection("blog")</code
+            > should read comfortably, and <a href="#">links</a> should be obvious
+            without shouting.
+          </p>
+          <pre><code>export async function getStaticPaths() &lbrace;
+  const posts = await getCollection("blog");
+  return posts.map((post) =&gt; (&lbrace; params: &lbrace; slug: post.id &rbrace;, props: &lbrace; post &rbrace; &rbrace;));
+&rbrace;</code></pre>
+        </section>
+      </main>
+
+      <footer class="p-footer">
+        <span>&copy; 2026 Nathan Wong</span>
+        <span class="p-footer-meta">built with astro</span>
+      </footer>
+    </div>
+
+    <script is:inline>
+      const AXES = {
+        font: {
+          label: "typography",
+          options: {
+            current: "current (Merriweather + Fira Sans)",
+            mono: "all mono (JetBrains Mono)",
+            grotesk: "grotesk (Inter + mono accents)",
+            editorial: "editorial (Newsreader + mono labels)",
+          },
+        },
+        theme: {
+          label: "color theme",
+          options: {
+            current: "current (slate + orange)",
+            paper: "paper (warm off-white + red)",
+            terminal: "terminal (near-black + green)",
+            ink: "ink (white + black + blue)",
+          },
+        },
+        ornament: {
+          label: "structure / ornament",
+          options: {
+            clean: "clean (whitespace only)",
+            numbered: "numbered sections (01 / rules)",
+            comments: "code comments (// labels)",
+            frame: "terminal frame (borders + prompt)",
+          },
+        },
+        nav: {
+          label: "nav style",
+          options: {
+            underline: "underline (current)",
+            breadcrumb: "breadcrumb (~/tora.dev left)",
+            brackets: "brackets ([home] [blog])",
+            minimal: "minimal (name left, small links right)",
+          },
+        },
+      };
+
+      const preview = document.getElementById("preview");
+      const groupsEl = document.getElementById("controls-groups");
+
+      function applyHash() {
+        for (const part of location.hash.replace("#", "").split("&")) {
+          const [k, v] = part.split("=");
+          if (AXES[k] && AXES[k].options[v]) preview.dataset[k] = v;
+        }
+      }
+
+      function syncHash() {
+        location.hash = Object.keys(AXES)
+          .map((k) => `${k}=${preview.dataset[k]}`)
+          .join("&");
+      }
+
+      applyHash();
+
+      for (const [axis, { label, options }] of Object.entries(AXES)) {
+        const fs = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = label;
+        fs.appendChild(legend);
+        for (const [value, name] of Object.entries(options)) {
+          const lbl = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = axis;
+          input.value = value;
+          input.checked = preview.dataset[axis] === value;
+          input.addEventListener("change", () => {
+            preview.dataset[axis] = value;
+            syncHash();
+          });
+          lbl.appendChild(input);
+          lbl.appendChild(document.createTextNode(name));
+          fs.appendChild(lbl);
+        }
+        groupsEl.appendChild(fs);
+      }
+    </script>
+
+    <style>
+      /* ============ page chrome (not part of the design) ============ */
+      body {
+        margin: 0;
+        display: flex;
+        min-height: 100vh;
+        background: #111;
+      }
+
+      #controls {
+        width: 300px;
+        flex-shrink: 0;
+        padding: 1.5em;
+        background: #181818;
+        color: #ddd;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        line-height: 1.5;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+
+      .controls-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin: 0 0 0.5em;
+        font-size: 12px;
+      }
+
+      .controls-hint {
+        color: #888;
+        margin: 0 0 1.5em;
+        font-size: 11px;
+      }
+
+      #controls fieldset {
+        border: 1px solid #333;
+        margin: 0 0 1.2em;
+        padding: 0.8em 1em;
+      }
+
+      #controls legend {
+        padding: 0 0.5em;
+        color: #de662d;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      #controls label {
+        display: block;
+        cursor: pointer;
+        padding: 0.15em 0;
+        font-size: 12px;
+      }
+
+      #controls input {
+        margin-right: 0.6em;
+        accent-color: #de662d;
+      }
+
+      @media (max-width: 800px) {
+        body {
+          flex-direction: column;
+        }
+        #controls {
+          width: 100%;
+          height: auto;
+          position: static;
+        }
+      }
+
+      /* ============ preview base ============ */
+      #preview {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: var(--pv-bg);
+        color: var(--pv-text);
+        font-family: var(--pv-font-body);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      #preview main {
+        flex: 1;
+        width: 100%;
+        max-width: 42em;
+        margin: 0 auto;
+        padding: 1.5em 2em 3em;
+        box-sizing: border-box;
+      }
+
+      #preview h1,
+      #preview h2,
+      #preview h3 {
+        font-family: var(--pv-font-heading);
+        line-height: 1.2;
+        margin: 0 0 0.5em;
+      }
+
+      #preview h1 {
+        font-size: 2.6em;
+        margin: 0 0 0.8em;
+      }
+
+      #preview h2 {
+        font-size: 1.6em;
+        margin: 0 0 0.8em;
+      }
+
+      #preview h3 {
+        font-size: 1.15em;
+        margin: 0 0 0.2em;
+      }
+
+      #preview p,
+      #preview ul {
+        margin: 1em 0;
+      }
+
+      #preview li {
+        margin: 0.6em 0;
+      }
+
+      #preview a {
+        color: inherit;
+        text-decoration: none;
+        box-shadow: inset 0 -0.12em 0 var(--pv-accent);
+        transition:
+          box-shadow 0.15s ease,
+          color 0.15s ease;
+      }
+
+      #preview main a:hover {
+        box-shadow: inset 0 -1.4em 0 var(--pv-accent);
+        color: var(--pv-bg);
+      }
+
+      #preview code {
+        font-family: var(--pv-font-mono);
+        font-size: 0.88em;
+        color: var(--pv-muted);
+      }
+
+      #preview pre {
+        background: var(--pv-surface);
+        border: 1px solid var(--pv-border);
+        padding: 1em 1.2em;
+        overflow-x: auto;
+        font-size: 0.85em;
+        line-height: 1.6;
+      }
+
+      #preview pre code {
+        color: var(--pv-text);
+      }
+
+      .p-section {
+        margin: 0 0 3.5em;
+      }
+
+      .p-post {
+        margin: 0 0 1.8em;
+      }
+
+      .p-post p {
+        margin: 0.2em 0;
+        color: var(--pv-muted);
+      }
+
+      .p-date {
+        font-family: var(--pv-font-mono);
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--pv-muted);
+      }
+
+      .p-header {
+        display: flex;
+        align-items: center;
+        max-width: 42em;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.5em 2em;
+        box-sizing: border-box;
+        gap: 1em;
+      }
+
+      .p-site {
+        font-family: var(--pv-font-mono);
+        font-weight: 700;
+        display: none;
+      }
+
+      .p-prompt {
+        color: var(--pv-accent);
+      }
+
+      .p-nav {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        gap: 1.6em;
+        font-family: var(--pv-font-mono);
+        font-size: 0.85em;
+      }
+
+      .p-nav a {
+        box-shadow: none;
+        position: relative;
+        padding-bottom: 2px;
+        opacity: 0.7;
+      }
+
+      .p-nav a.selected,
+      .p-nav a:hover {
+        opacity: 1;
+      }
+
+      .p-nav .br {
+        display: none;
+      }
+
+      .p-footer {
+        max-width: 42em;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.5em 2em;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--pv-font-mono);
+        font-size: 0.75em;
+        color: var(--pv-muted);
+        border-top: 1px solid var(--pv-border);
+      }
+
+      /* ============ axis: typography ============ */
+      #preview[data-font="current"] {
+        --pv-font-body: Merriweather, serif;
+        --pv-font-heading: "Fira Sans", sans-serif;
+        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
+      }
+
+      #preview[data-font="current"] h1 {
+        font-family: Merriweather, serif;
+      }
+
+      #preview[data-font="mono"] {
+        --pv-font-body: "JetBrains Mono", "SF Mono", menlo, monospace;
+        --pv-font-heading: "JetBrains Mono", "SF Mono", menlo, monospace;
+        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
+        font-size: 14.5px;
+      }
+
+      #preview[data-font="mono"] h1 {
+        font-size: 2em;
+        font-weight: 700;
+      }
+
+      #preview[data-font="grotesk"] {
+        --pv-font-body: Inter, system-ui, sans-serif;
+        --pv-font-heading: Inter, system-ui, sans-serif;
+        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
+      }
+
+      #preview[data-font="grotesk"] h1 {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      #preview[data-font="editorial"] {
+        --pv-font-body: Newsreader, Georgia, serif;
+        --pv-font-heading: Newsreader, Georgia, serif;
+        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
+        font-size: 18px;
+      }
+
+      #preview[data-font="editorial"] h1 {
+        font-size: 3em;
+        font-weight: 400;
+      }
+
+      /* ============ axis: color theme ============ */
+      #preview[data-theme="current"] {
+        --pv-bg: #2b3639;
+        --pv-surface: #232d30;
+        --pv-text: #cccccc;
+        --pv-muted: #999999;
+        --pv-accent: #de662d;
+        --pv-border: #46545a;
+      }
+
+      #preview[data-theme="paper"] {
+        --pv-bg: #f7f4ee;
+        --pv-surface: #efe9df;
+        --pv-text: #1f1d1a;
+        --pv-muted: #6d675e;
+        --pv-accent: #c73e1d;
+        --pv-border: #d8d0c2;
+      }
+
+      #preview[data-theme="terminal"] {
+        --pv-bg: #0c0e0c;
+        --pv-surface: #131713;
+        --pv-text: #d4dcd4;
+        --pv-muted: #7d8a7d;
+        --pv-accent: #4ade80;
+        --pv-border: #263026;
+      }
+
+      #preview[data-theme="terminal"] main a:hover {
+        color: #0c0e0c;
+      }
+
+      #preview[data-theme="ink"] {
+        --pv-bg: #ffffff;
+        --pv-surface: #f4f5f7;
+        --pv-text: #16181d;
+        --pv-muted: #5c6370;
+        --pv-accent: #2451ff;
+        --pv-border: #e2e4e9;
+      }
+
+      /* ============ axis: structure / ornament ============ */
+      #preview[data-ornament="numbered"] .p-section {
+        border-top: 1px solid var(--pv-border);
+        padding-top: 1.2em;
+      }
+
+      #preview[data-ornament="numbered"] .p-section::before {
+        content: attr(data-num) " /";
+        display: block;
+        font-family: var(--pv-font-mono);
+        font-size: 0.75em;
+        letter-spacing: 0.15em;
+        color: var(--pv-accent);
+        margin-bottom: 1.2em;
+      }
+
+      #preview[data-ornament="comments"] .p-section::before {
+        content: "// " attr(data-label);
+        display: block;
+        font-family: var(--pv-font-mono);
+        font-size: 0.8em;
+        color: var(--pv-muted);
+        margin-bottom: 1em;
+      }
+
+      #preview[data-ornament="frame"] main {
+        border: 1px solid var(--pv-border);
+        margin: 0 auto 2em;
+        padding-top: 2em;
+      }
+
+      #preview[data-ornament="frame"] .p-section {
+        border-bottom: 1px dashed var(--pv-border);
+        padding-bottom: 2em;
+      }
+
+      #preview[data-ornament="frame"] .p-section:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      #preview[data-ornament="frame"] .p-section::before {
+        content: "$ cat " attr(data-label) ".md";
+        display: block;
+        font-family: var(--pv-font-mono);
+        font-size: 0.8em;
+        color: var(--pv-accent);
+        margin-bottom: 1em;
+      }
+
+      /* ============ axis: nav style ============ */
+      #preview[data-nav="underline"] .p-nav a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--pv-accent);
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+
+      #preview[data-nav="underline"] .p-nav a.selected::before,
+      #preview[data-nav="underline"] .p-nav a:hover::before {
+        transform: scaleX(1);
+      }
+
+      #preview[data-nav="breadcrumb"] .p-site {
+        display: inline;
+      }
+
+      #preview[data-nav="breadcrumb"] .p-nav {
+        justify-content: flex-start;
+        gap: 0;
+      }
+
+      #preview[data-nav="breadcrumb"] .p-nav a {
+        padding: 0 0.6em;
+      }
+
+      #preview[data-nav="breadcrumb"] .p-nav a + a {
+        border-left: 1px solid var(--pv-border);
+      }
+
+      #preview[data-nav="breadcrumb"] .p-nav a.selected {
+        color: var(--pv-accent);
+      }
+
+      #preview[data-nav="brackets"] .p-nav .br {
+        display: inline;
+        color: var(--pv-muted);
+      }
+
+      #preview[data-nav="brackets"] .p-nav a.selected .br,
+      #preview[data-nav="brackets"] .p-nav a:hover .br {
+        color: var(--pv-accent);
+      }
+
+      #preview[data-nav="minimal"] .p-site {
+        display: inline;
+      }
+
+      #preview[data-nav="minimal"] .p-nav {
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      #preview[data-nav="minimal"] .p-nav a.selected {
+        color: var(--pv-accent);
+      }
+    </style>
+  </body>
+</html>
