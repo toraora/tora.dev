@@ -12,7 +12,7 @@ const description = "Design exploration playground.";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Geist+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
     />
   </head>
   <body>
@@ -26,10 +26,11 @@ const description = "Design exploration playground.";
 
     <div
       id="preview"
-      data-font="current"
-      data-theme="current"
+      data-font="mono"
+      data-theme="ink"
       data-ornament="clean"
       data-nav="underline"
+      data-links="thin"
     >
       <header class="p-header">
         <span class="p-site"><span class="p-prompt">~/</span>tora.dev</span>
@@ -63,7 +64,9 @@ const description = "Design exploration playground.";
             <li>a proud graduate of UC Berkeley. Go Bears!</li>
           </ul>
           <p>
-            Find me at <a href="https://github.com/toraora">GitHub (toraora)</a> or
+            Find me at <a href="https://github.com/toraora">GitHub (toraora)</a> or{
+              " "
+            }
             <a href="https://gitlab.com/toraora">GitLab (toraora)</a>.
           </p>
         </section>
@@ -109,12 +112,12 @@ const description = "Design exploration playground.";
     <script is:inline>
       const AXES = {
         font: {
-          label: "typography",
+          label: "mono font",
           options: {
-            current: "current (Merriweather + Fira Sans)",
-            mono: "all mono (JetBrains Mono)",
-            grotesk: "grotesk (Inter + mono accents)",
-            editorial: "editorial (Newsreader + mono labels)",
+            mono: "JetBrains Mono",
+            plex: "IBM Plex Mono",
+            geist: "Geist Mono",
+            space: "Space Mono",
           },
         },
         theme: {
@@ -133,6 +136,15 @@ const description = "Design exploration playground.";
             numbered: "numbered sections (01 / rules)",
             comments: "code comments (// labels)",
             frame: "terminal frame (borders + prompt)",
+          },
+        },
+        links: {
+          label: "link style",
+          options: {
+            thin: "thin underline (accent)",
+            muted: "muted underline, accent on hover",
+            dotted: "dotted underline",
+            fill: "fill on hover (previous)",
           },
         },
         nav: {
@@ -295,7 +307,8 @@ const description = "Design exploration playground.";
       }
 
       #preview h1 {
-        font-size: 2.6em;
+        font-size: 2em;
+        font-weight: 700;
         margin: 0 0 0.8em;
       }
 
@@ -321,15 +334,10 @@ const description = "Design exploration playground.";
       #preview a {
         color: inherit;
         text-decoration: none;
-        box-shadow: inset 0 -0.12em 0 var(--pv-accent);
         transition:
           box-shadow 0.15s ease,
+          text-decoration-color 0.15s ease,
           color 0.15s ease;
-      }
-
-      #preview main a:hover {
-        box-shadow: inset 0 -1.4em 0 var(--pv-accent);
-        color: var(--pv-bg);
       }
 
       #preview code {
@@ -432,50 +440,28 @@ const description = "Design exploration playground.";
         border-top: 1px solid var(--pv-border);
       }
 
-      /* ============ axis: typography ============ */
-      #preview[data-font="current"] {
-        --pv-font-body: Merriweather, serif;
-        --pv-font-heading: "Fira Sans", sans-serif;
-        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
-      }
-
-      #preview[data-font="current"] h1 {
-        font-family: Merriweather, serif;
+      /* ============ axis: mono font ============ */
+      #preview {
+        font-size: 14.5px;
+        --pv-font-body: var(--pv-mono-family);
+        --pv-font-heading: var(--pv-mono-family);
+        --pv-font-mono: var(--pv-mono-family);
       }
 
       #preview[data-font="mono"] {
-        --pv-font-body: "JetBrains Mono", "SF Mono", menlo, monospace;
-        --pv-font-heading: "JetBrains Mono", "SF Mono", menlo, monospace;
-        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
-        font-size: 14.5px;
+        --pv-mono-family: "JetBrains Mono", "SF Mono", menlo, monospace;
       }
 
-      #preview[data-font="mono"] h1 {
-        font-size: 2em;
-        font-weight: 700;
+      #preview[data-font="plex"] {
+        --pv-mono-family: "IBM Plex Mono", "SF Mono", menlo, monospace;
       }
 
-      #preview[data-font="grotesk"] {
-        --pv-font-body: Inter, system-ui, sans-serif;
-        --pv-font-heading: Inter, system-ui, sans-serif;
-        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
+      #preview[data-font="geist"] {
+        --pv-mono-family: "Geist Mono", "SF Mono", menlo, monospace;
       }
 
-      #preview[data-font="grotesk"] h1 {
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      #preview[data-font="editorial"] {
-        --pv-font-body: Newsreader, Georgia, serif;
-        --pv-font-heading: Newsreader, Georgia, serif;
-        --pv-font-mono: "JetBrains Mono", "SF Mono", menlo, monospace;
-        font-size: 18px;
-      }
-
-      #preview[data-font="editorial"] h1 {
-        font-size: 3em;
-        font-weight: 400;
+      #preview[data-font="space"] {
+        --pv-mono-family: "Space Mono", "SF Mono", menlo, monospace;
       }
 
       /* ============ axis: color theme ============ */
@@ -506,7 +492,7 @@ const description = "Design exploration playground.";
         --pv-border: #263026;
       }
 
-      #preview[data-theme="terminal"] main a:hover {
+      #preview[data-theme="terminal"][data-links="fill"] main a:hover {
         color: #0c0e0c;
       }
 
@@ -515,8 +501,54 @@ const description = "Design exploration playground.";
         --pv-surface: #f4f5f7;
         --pv-text: #16181d;
         --pv-muted: #5c6370;
-        --pv-accent: #2451ff;
+        --pv-accent: #3b5bdb;
         --pv-border: #e2e4e9;
+      }
+
+      /* ============ axis: link style ============ */
+      #preview[data-links="thin"] main a {
+        text-decoration: underline;
+        text-decoration-color: var(--pv-accent);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      #preview[data-links="thin"] main a:hover {
+        color: var(--pv-accent);
+      }
+
+      #preview[data-links="muted"] main a {
+        text-decoration: underline;
+        text-decoration-color: var(--pv-border);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      #preview[data-links="muted"] main a:hover {
+        text-decoration-color: var(--pv-accent);
+        color: var(--pv-accent);
+      }
+
+      #preview[data-links="dotted"] main a {
+        text-decoration: underline dotted;
+        text-decoration-color: var(--pv-muted);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      #preview[data-links="dotted"] main a:hover {
+        text-decoration: underline solid;
+        text-decoration-color: var(--pv-accent);
+        color: var(--pv-accent);
+      }
+
+      #preview[data-links="fill"] main a {
+        box-shadow: inset 0 -0.12em 0 var(--pv-accent);
+      }
+
+      #preview[data-links="fill"] main a:hover {
+        box-shadow: inset 0 -1.4em 0 var(--pv-accent);
+        color: var(--pv-bg);
       }
 
       /* ============ axis: structure / ornament ============ */
