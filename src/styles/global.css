@@ -104,7 +104,10 @@ a:hover {
 }
 
 p a,
-li a {
+li a,
+h1 a,
+h2 a,
+h3 a {
   text-decoration: underline;
   text-decoration-color: var(--border-color);
   text-decoration-thickness: 1px;
@@ -112,7 +115,10 @@ li a {
 }
 
 p a:hover,
-li a:hover {
+li a:hover,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
   text-decoration-color: var(--primary-color);
   color: var(--primary-color);
 }
